@@ -1,0 +1,23 @@
+<?php
+
+session_start(); 
+
+$_SESSION['user'] = [
+    'id'    => 123,
+    'name'  => 'Ala',
+    'email' => 'ala@example.com',
+];
+
+if (isset($_SESSION['user'])) {
+    $u = $_SESSION['user'];
+    echo "Zalogowany: {$u['name']} ({$u['email']}), ID: {$u['id']}\n";
+} else {
+    echo "Brak aktywnej sesji\n";
+}
+
+$_SESSION['lang'] = 'pl';
+echo "Język: " . $_SESSION['lang'] . "\n";
+
+
+unset($_SESSION['lang']);
+
