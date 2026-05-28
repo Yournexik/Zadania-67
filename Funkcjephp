@@ -1,0 +1,23 @@
+<?php
+function sayHello() {
+    return "Witaj!";
+}
+function multiply($a, $b) {
+    return $a * $b; 
+}
+function isEven($n) {
+    return $n % 2 == 0;
+}
+function formatPrice($price) {
+    return number_format($price, 2);
+}
+function greetUser($name, $age) {
+    return "Cześć " . $name . ", masz " . $age . " lat.";
+}
+echo sayHello() . "<br>";
+echo multiply(4, 4) . "<br>";
+echo isEven(10) . "<br>";
+echo formatPrice(10) . "<br>";
+echo greetUser("Kubasik", 67);
+
+?>
