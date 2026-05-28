@@ -1,0 +1,50 @@
+<?php
+try {
+    $x = 10; $y = 0;
+    if ($y == 0) throw new DivisionByZeroError("Dzielenie przez zero");
+    echo $x / $y . "\n";
+} catch (DivisionByZeroError $e) {
+    echo "Zad1: " . $e->getMessage() . "\n";
+}
+
+
+function checkEmail($e) {
+    if (strpos($e, '@') === false) throw new InvalidArgumentException("Zły email");
+}
+try {
+    checkEmail("a@b.pl");
+    checkEmail("zly.email");
+    echo "Zad2: OK\n";
+} catch (InvalidArgumentException $e) {
+    echo "Zad2: " . $e->getMessage() . "\n";
+}
+
+try {
+    $p = "nie_ma.txt";
+    if (!is_file($p)) throw new RuntimeException("Brak pliku: $p");
+    $h = fopen($p, "r");
+    echo "Zad3: " . fgets($h) . "\n";
+    fclose($h);
+} catch (RuntimeException $e) {
+    echo "Zad3: " . $e->getMessage() . "\n";
+}
+
+try {
+    throw new LogicException("Błąd logiki");
+} catch (LogicException $e) {
+    echo "Zad4: " . $e->getMessage() . "\n";
+} finally {
+    echo "Zad4: koniec\n";
+}
+
+class MyEmailException extends Exception {}
+function checkEmailStrict($e) {
+    if (!filter_var($e, FILTER_VALIDATE_EMAIL)) throw new MyEmailException("Email niepoprawny");
+}
+try {
+    checkEmailStrict("ok@x.pl");
+    checkEmailStrict("ble");
+    echo "Zad5: OK\n";
+} catch (MyEmailException $e) {
+    echo "Zad5: " . $e->getMessage() . "\n";
+}
