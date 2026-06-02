@@ -1,0 +1,21 @@
+<?php
+$colors = ["czerwony","zielony","niebieski"];
+echo $colors[0]."<br>";
+
+$product = ["name"=>"Komputerek","price"=>2999,"in_stock"=>true];
+echo $product["name"]." ".$product["price"]." ".$product["in_stock"]."<br>";
+
+$numbers = [1,2,3];
+array_push($numbers,4);
+print_r($numbers);
+echo "<br>";
+
+$fruits = ["jabluszko","bananek","Pomaranczka"];
+if(in_array("banan",$fruits)){
+echo "banan jest<br>";
+}
+
+$user = ["name"=>"Jan","age"=>28,"city"=>"Warszawa"];
+$klucze = array_keys($user);
+print_r($klucze);
+?>
