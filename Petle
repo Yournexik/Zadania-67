@@ -1,0 +1,34 @@
+<?php
+for($i=1;$i<=10;$i++){
+echo $i."<br>";
+}
+
+echo "<br>";
+
+$j=2;
+while($j<=20){
+echo $j."<br>";
+$j+=2;
+}
+
+echo "<br>";
+
+$imiona = ["Kazik","Ania","Kubasik","Olga","Macius"];
+foreach($imiona as $imie){
+echo $imie."<br>";
+}
+
+echo "<br>";
+
+do{
+echo "Ta pętla wykonała się przynajmniej raz<br>";
+}while(false);
+
+echo "<br>";
+
+$suma = 0;
+for($k=1;$k<=100;$k++){
+$suma += $k;
+}
+echo $suma;
+?>
